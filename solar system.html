@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            *{      
+                  padding:0;
+                  margin:0;
+                  box-sizing:border-box;
+            }
+            .galaxy{
+                  background-image:url("https://images.unsplash.com/photo-1465101162946-4377e57745c3?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGdhbGF4eXxlbnwwfHwwfHx8MA%3D%3D");
+                  height:100vh;
+                  width:100vw;
+                  border: 2px solid red;
+                  display:flex;
+                  justify-content:space-evenly;
+                  align-items:center;
+                  background-size:cover;
+            }
+            .sun{
+                  background-image:url("https://media.istockphoto.com/id/1156217558/photo/sun-texture.jpg?s=170667a&w=0&k=20&c=vFpfvkpf56dXPkKVQ7dtwY8tgfx7bhtwrwBMuDXhNwk=");
+                  height:300px;
+                  width:300px;
+                  border-radius:50%;
+                  position:absolute;
+                  margin:300px;            
+            }
+            .circle,.circle1,.circle2,.circle3,.circle4,.circle5,.circle6, .circle7{
+                  position: absolute;
+                  border-radius: 50%;
+                  animation: rotate 10s linear infinite normal;
+            }
+            .circle {
+                  height: 600px;
+                  width: 600px;
+                  border: 2px solid white;
+            }
+            .circle1 {
+                  height: 900px;
+                  width: 900px;
+                  border: 2px solid white;
+                  animation-duration: 15s;
+            }
+            .circle2 {
+                  height: 1200px;
+                  width: 1200px;
+                  border: 2px solid white;
+                  animation-duration: 20s;
+            }
+            .circle3 {
+                  height: 1500px;
+                  width: 1500px;
+                  border: 2px solid white;
+                  animation-duration: 25s;
+            }
+            .circle4 {
+                  height: 1800px;
+                  width: 1800px;
+                  border: 2px solid white;
+                  animation-duration: 30s;
+            }
+
+            .circle5 {
+                  height: 2100px;
+                  width: 2100px;
+                  border: 2px solid white;
+                  animation-duration: 35s;
+            }
+
+            .circle6 {
+                  height: 2400px;
+                  width: 2400px;
+                  border: 2px solid white;
+                  animation-duration: 40s;
+            }
+
+            .circle7 {
+                  height: 2700px;
+                  width: 2700px;
+                  border: 2px solid white;
+                  animation-duration: 45s;
+            }
+
+            .mercury, .venus, .earth,.mars, .jupiter, .saturn, .uranus, .neptune {
+                  position: absolute;
+                  height: 100px;
+                  width: 100px;
+                  background-size: contain;
+                  border-radius: 50%;
+            }
+
+            .mercury {
+                  background-image: url("https://planetpixelemporium.com/download/download.php?mercurymap.jpg");
+                  top: 395px;
+                  left: 500px;
+            }
+
+            .venus {
+                  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Solarsystemscope_texture_2k_venus_surface.jpg/1200px-Solarsystemscope_texture_2k_venus_surface.jpg");
+                  top: 590px;
+                  left: 800px;
+            }
+            .earth{
+                  background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3igmBdY0QT1yRp0s1Q9gUlaNQh242qMx-uA&s");
+                  top: 795px;
+                  left: 1090px;
+            }
+            .mars {
+                  background-image: url("https://img.freepik.com/free-photo/orange-details-moon-texture-concept_23-2149535767.jpg?semt=ais_hybrid&w=740&q=80");
+                  top: 895px;
+                  left: 1420px;
+            }
+
+            .jupiter {
+                  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ChPCRIXBZV6MNJa0hwOjh8UKwoZuJMZWpQ&s");
+                  top: 995px;
+                  left: 1730px;
+            }
+            .saturn{
+                  background-image:url("https://www.shutterstock.com/image-vector/vector-texture-map-spherical-surface-260nw-2473436999.jpg");
+                  top: 1095px;
+                  left: 2040px;
+            }
+            .uranus {
+                  background-image: url("data:image/jpeg;base64,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");
+                  top: 1190px;
+                  left: 2350px;
+            }
+            .neptune{
+                  background-image: url("data:image/jpeg;base64,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");
+                  top: 1290px;
+                  left: 2640px;
+            }
+
+            @keyframes rotate{
+                  from{
+                        
+                  }
+                  to{
+                        transform:rotate(360deg);
+                  }
+
+            }
+            
+      </style>
+</head>
+<body>
+      <div class="galaxy">
+    <div class="sun"></div>
+
+    <div class="circle">
+      <div class="mercury"></div>
+    </div>
+
+    <div class="circle1">
+      <div class="venus"></div>
+    </div>
+
+    <div class="circle2">
+      <div class="earth"></div>
+    </div>
+
+    <div class="circle3">
+      <div class="mars"></div>
+    </div>
+
+    <div class="circle4">
+      <div class="jupiter"></div>
+    </div>
+
+    <div class="circle5">
+      <div class="saturn"></div>
+    </div>
+
+    <div class="circle6">
+      <div class="uranus"></div>
+    </div>
+
+    <div class="circle7">
+      <div class="neptune"></div>
+    </div>
+
+  </div>
+</body>
+</html>

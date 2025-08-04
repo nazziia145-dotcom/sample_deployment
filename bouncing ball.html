@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=>, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            img{
+                  
+                  width: 100px;
+                  height: 100px;
+                  position: relative;
+                  animation-name: bouncingball;
+                  animation-duration:3s;
+                  animation-timing-function:linear;
+                  animation-iteration-count:infinite;
+                  animation-direction:cubic-bezier(0, 1.4, 1, -1.42);
+            }
+
+            @keyframes bouncingball {
+                  0%{
+                        top:0px;
+                        left:0%;
+                  }
+                  25%{
+                        top :900px;
+                        left:300px;
+                       
+                  }
+                  50%{
+                        top:0px ;
+                        right:0px;
+                        bottom:900px;
+                        left:300px;     
+                  }
+                  75%{
+                        top:900px ;
+                        right:300px;
+                        left:0px;
+                        bottom:900px;
+                  }
+                  100%{
+                        bottom :900px;
+                        left:0px;
+                        right:300px;
+                        top:0px;
+                  }
+            }
+
+      </style>
+</head>
+<body>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXo8tXXCbU9nsV2Qn54ItpMWxaC5FzR2FaRA&s" alt="50px" height="50px" width="80px">
+</body>
+</html>
